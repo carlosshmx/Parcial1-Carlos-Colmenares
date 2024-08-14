@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import './App.css'
-import Card from './components/Card'
+import Form from './components/Form/Form'
+import List from './components/List/List'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [datos, setDatos] = useState([])
+  const [show, setShow] = useState(false)
 
   return (
     <div className="App">
-      <h1>Carga de estudiantes</h1>
-      <form></form>
-      <Card/>
+      <h1>Estudiantes con hobbies</h1>
+      <Form datos={datos} setDatos={setDatos} setShow={setShow}/>
+      {show? (<List datos={datos}/>) : null}
     </div>
   )
 }
